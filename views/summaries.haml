@@ -2,7 +2,7 @@
   %ol.pages
     - pages.each do |page|
       %li
-        - haml_tag heading do
+        - haml_tag page.heading do
           %a{ :href => page.abspath }= page.heading
         - if page.date
           .date= format_date(page.date)
