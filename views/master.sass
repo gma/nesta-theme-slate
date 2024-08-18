@@ -242,18 +242,9 @@ div#sidebar
     & > ul
       @include adjust-font-size(0.909, 0, 0)
 
-  div.feed,
-  div.social
+  div.feed
     margin: $base-vertical-margin 0
   
-  div.feed a
-    padding: 6px 0 6px 36px
-    background: url(/slate/images/feed-icon.png) no-repeat left center
-
-  div.social
-    img
-      margin-right: 0.25em
-      padding: 2px
-      &:hover
-        padding: 1px
-        border: 1px solid $tint
+    a
+      padding: 6px 0 6px 36px
+      background: url(/slate/images/feed-icon.png) no-repeat left center
