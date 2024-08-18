@@ -1,6 +1,6 @@
 .social
   %h2 Social links:
-  - heading = @page.nil? ? @heading : @page.heading
+  - heading = heading_or_site_title
   %a{ :href => "http://delicious.com/post?url=#{url}&title=#{heading}", :title => "Bookmark on delicious.com" }
     %img{ :src => "/slate/images/delicious.png", :alt => "Bookmark on delicous.com" }
   %a{ :href => "http://digg.com/submit?phase=2&url=#{url}&title=#{heading}", :title => "Digg it!" }
