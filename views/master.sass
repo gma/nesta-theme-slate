@@ -3,10 +3,10 @@
 $content-width: 37em
 
 $tint: #D3D4D8
-$base-color: $tint - #888
-$dark-tint: $tint - #333
-$background-tint: $tint + #222
-$border-color: $tint + #111
+$base-color: adjust-color($tint, $red: -8, $green: -8, $blue: -8)
+$dark-tint: adjust-color($tint, $red: -3, $green: -3, $blue: -3)
+$background-tint: adjust-color($tint, $red: 2, $green: 2, $blue: 2)
+$border-color: adjust-color($tint, $red: 1, $green: 1, $blue: 1)
 
 $h1-scale: 2.18
 $h2-scale: 1.64
@@ -27,11 +27,11 @@ $vertical-rhythm: 1.5em
 $base-vertical-margin: 1.5em
 
 @mixin adjust-font-size($scale, $top-weight: 1, $bottom-weight: 1)
-  $average-margin: $base-vertical-margin / $scale
+  $average-margin: calc($base-vertical-margin / $scale)
   margin-top: $average-margin * $top-weight
   margin-bottom: $average-margin * $bottom-weight
   
-  $line-height: $vertical-rhythm / $scale
+  $line-height: calc($vertical-rhythm / $scale)
   @if $line-height < 1
     line-height: $line-height * 2
   @else
@@ -81,7 +81,7 @@ blockquote
   font-style: italic
   
 pre
-  padding: ($vertical-rhythm / 2) 1em
+  padding: calc($vertical-rhythm / 2) 1em
   overflow: auto
 
 img
@@ -157,14 +157,14 @@ div#content
     @include dark-tint-text
   
   h2
-    background: $background-tint - #111
-    background: rgba($background-tint - #222, 0.4)
-    margin-left: (-2em / $h2-scale) * $base-scale
+    background: adjust-color($background-tint, $red: 1, $green: 1, $blue: 1)
+    background: adjust-color($background-tint, $red: -2, $green: -2, $blue: -2, $alpha: 0.4)
+    margin-left: calc((-2em / $h2-scale) * $base-scale)
     margin-right: 0
     padding-left: 1em
     padding-right: 1em
     
-    text-shadow: 0 1px 0 $tint + #333
+    text-shadow: 0 1px 0 adjust-color($tint, $red: 3, $green: 3, $blue: 3)
   
   ol,
   ul
@@ -214,7 +214,7 @@ div#content
   div.categories
     margin-left: -1em
     margin-right: -1em
-    border-top: 1px solid $background-tint - #0a0a0a
+    border-top: 1px solid adjust-color($background-tint, $red: -0a, $green: -0a, $blue: -0a)
     padding: 0.5em 1em
     background: $background-tint
     a
